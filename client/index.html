@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Get them models</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+</head>
+<body>
+	<article>
+
+		<div class="card-columns">
+
+		</div>
+
+	<article>
+	
+	<script id="card-template" type="text/x-handlebars-template">
+	  <div class="card">
+	    <img class="card-img-top" src="{{picture}}" alt="Card image cap">
+	    <div class="card-block">
+	      <h4 class="card-title">{{name.first}} {{name.last}}</h4>
+	      <p class="email">{{email}}</p>
+	      <p class="card-text">{{about}}</p>
+	    </div>
+	  </div>
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+	<script>
+	(function($) { 
+		var source   = $("#card-template").html();
+		var template = Handlebars.compile(source);
+		var container= $('.card-columns');
+
+		$.ajax('http://localhost:3000/api/people', {
+		   success: function(data) {
+		      for (let i = 0; i < data.length; i++){
+		      	var cardHTML = template(data[i]);
+		      	container.append(cardHTML);
+		      	console.log(data[i])
+		      }
+		   },
+		   error: function() {
+		      console.log('An error occurred');
+		   }
+		});
+	})(jQuery);
+	</script>
+</body>
+</html>

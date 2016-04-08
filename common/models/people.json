@@ -1,0 +1,76 @@
+{
+  "name": "People",
+  "plural": "people",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string",
+      "required": true
+    },
+    "index": {
+      "type": "number",
+      "required": true
+    },
+    "picture": {
+      "type": "string",
+      "required": true
+    },
+    "age": {
+      "type": "number"
+    },
+    "eyeColor": {
+      "type": "string"
+    },
+    "name": {
+      "type": "object"
+    },
+    "company": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "about": {
+      "type": "string"
+    },
+    "registered": {
+      "type": "date"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "logitude": {
+      "type": "string"
+    },
+    "tags": {
+      "type": [
+        "any"
+      ]
+    },
+    "range": {
+      "type": [
+        "number"
+      ]
+    },
+    "greeting": {
+      "type": "string"
+    },
+    "favoriteFruit": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
